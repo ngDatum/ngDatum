@@ -1,5 +1,9 @@
 # Created by https://www.gitignore.io
 
+# Dependency directory
+node_modules
+
+
 ### OSX ###
 .DS_Store
 .AppleDouble
@@ -50,3 +54,5 @@ $RECYCLE.BIN/
 
 # KDE directory preferences
 .directory
+
+
