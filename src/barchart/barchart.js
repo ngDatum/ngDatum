@@ -7,7 +7,7 @@ angular.module('ngDatum')
 
     var fanciness = [];
     if(attr.fanciness){
-      fanciness = _.map(attr.fanciness.split(','), function(val){ return val.trim() })
+      fanciness = attr.fanciness.split(',').map(function(val){ return val.trim() })
     }
 
 
@@ -53,14 +53,14 @@ angular.module('ngDatum')
       var temp = scope.timeformat.format;
       var timeformat = (simpleDates[temp]) ? simpleDates[temp] : temp;
       var format = d3.time.format(timeformat);
-      _.each(scope.dataSet, function(element){
+      scope.dataSet.forEach(function(element){
           element[xItems] = format(new Date(element[xItems]))
       })
     }
 
 
     var xScale = d3.scale.ordinal()
-        .domain(_.pluck(scope.dataSet,xItems))
+        .domain(scope.dataSet.map(function(val){ return val[xItems] }))
         .rangeBands([0, width], .1)
 
     var minYLabel = d3.min(scope.dataSet, function(d){ return d[yItems] });
@@ -182,13 +182,25 @@ angular.module('ngDatum')
       //BAR appearance animations (only one per)
       var fancyBarAnim = ['bounceUp', 'bounceDown', 'grow'];
 
+      //use default bar animation if they dont have any bar animations listed in the attribute
+      //that collide with our fancyBarAnim list a couple lines above here
       fancyFunks.defaultVis = function(){
-        if( _.intersection(fanciness, fancyBarAnim).length === 0){
-            bars.attr('x', function(d){ return xScale(d[xItems]) })
-                .attr('y', function(d){ return yScale(d[yItems]) })
-                .attr('width', xScale.rangeBand())
-                .attr('height', function(d){ return height - yScale(d[yItems]) })
+        var useDefaultVis = fanciness.every(function(elem){
+          if(fancyBarAnim.indexOf(elem) === -1) return true;
+        });
+        
+        if(useDefaultVis){
+          bars.attr('x', function(d){ return xScale(d[xItems]) })
+            .attr('y', function(d){ return yScale(d[yItems]) })
+            .attr('width', xScale.rangeBand())
+            .attr('height', function(d){ return height - yScale(d[yItems]) })
         }
+
+        
+
+
+
+
       }
 
       fancyFunks.bounceUp = function(){
@@ -214,7 +226,7 @@ angular.module('ngDatum')
 
 
       //activate given fanciness options
-      _.each(fanciness, function(val){
+      fanciness.forEach(function(val){
         fancyFunks[val]();
       })
 
