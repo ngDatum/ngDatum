@@ -184,7 +184,7 @@ angular.module('nd')
       //that collide with our fancyBarAnim list a couple lines above here
       fancyFunks.defaultVis = function(){
         var useDefaultVis = fanciness.every(function(elem){
-          if(fancyBarAnim.indexOf(elem) === -1) return true;
+          if(fancyBarAnim.indexOf(elem) === -1) { return true; }
         });
         
         if(useDefaultVis){
