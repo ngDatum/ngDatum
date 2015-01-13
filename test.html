@@ -14,7 +14,12 @@
 </head>
 <body>
 <div ng-controller="MyController">
-  <nd-barchart data="dataSet" labels="{x:'name',y:'age'}" />
+  <div>
+    <nd-barchart data="dataSet" labels="{x:'name',y:'age'}" />
+  </div>
+  <div>
+    <nd-donutchart data="donutData"></nd-donutchart>
+  </div>
 </div>
 </body>
 
@@ -27,6 +32,12 @@
       {name:'Bobby',   age:31},
       {name:'Charlie', age:100},
       {name:'Bobbie',  age:90}
+    ];
+    $scope.donutData = [
+      { label: 'Abulia', count: 10 }, 
+      { label: 'Betelgeuse', count: 20 },
+      { label: 'Cantaloupe', count: 30 },
+      { label: 'Dijkstra', count: 40 }
     ];
   }]);
 
