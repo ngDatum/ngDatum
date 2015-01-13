@@ -12,16 +12,77 @@
 <script src="src/donutchart/donutchart.js"></script>
 <script src="src/linechart/linechart.js"></script>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <title>Testing ngDatum</title>
 </head>
 <body>
 <div ng-controller="MyController">
-    <nd-barchart data="dataSet" labels="{x:'name',y:'age'}" fanciness="stepGrow, tip" size="{width:300, height:200}"></nd-barchart>
-    <nd-donutchart data="donutData"></nd-donutchart>
-    <nd-linechart data="lineData" labels="{x:'date',y:'close'}" size="{width:500, height:500}" margins="{bottom:60}"></nd-donutchart>
+    
+    <nd-barchart data="dataSet"
+                 labels="{x:'name',y:'age'}"
+                 fanciness="stepGrow, tip, emphasizeLow"
+                 </nd-barchart>
 
+    <nd-donutchart data="donutData">
+                    </nd-donutchart>
+
+    <nd-linechart data="lineData"
+                  labels="{x:'date',y:'close'}"
+                  size="{width:500, height:500}"
+                  margins="{bottom:60}">
+                  </nd-donutchart>
 </div>
 </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <script>
@@ -34,18 +95,20 @@ app.controller('MyController', ['$scope', function($scope){
   //             BARCHART              //
   ///////////////////////////////////////
   $scope.dataSet = [
-    {name:'Brian',    age:27 },
+    {name:'Brian',    age:95 },
     {name:'Bobby',    age:31 },
     {name:'Dan',      age:45 },
     {name:'Hayna',    age:90 },
     {name:'Bertha',   age:100},
     {name:'Charlie',  age:100},
+    {name:'Brit',  age:140},
+    {name:'Hammy',  age:120},
     {name:'Henry',    age:4  },
     {name:'Maredith', age:57 },
     {name:'Bambi',    age:23 },
     {name:'Coco',     age:78 },
     {name:'Zezu',     age:65 },
-    {name:'Panko',    age:209}
+    {name:'Panko',    age:105}
     
   ];
 

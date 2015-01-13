@@ -58,4 +58,5 @@ $RECYCLE.BIN/
 
 ### Project ###
 dist/*.annotated.js
+fancinessGifs/raw
 src/linechart/untitled.js
