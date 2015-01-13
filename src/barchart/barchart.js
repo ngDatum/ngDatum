@@ -217,6 +217,19 @@ angular.module('ngDatum')
             .attr('width', xScale.rangeBand())
             .attr('height', function(d){ return height - yScale(d[yItems]); });
       };
+
+      //prototype NOT TESTED
+      fancyFunks.stepGrow = function(){
+        bars.transition()
+            .duration(function(d,i){
+              return parseInt(i + '00' );
+            })
+            .attr('x', function(d,i){ return xScale(d[xItems]); })
+            .attr('y', function(d,i){ return yScale(d[yItems]); })
+            .attr('width', xScale.rangeBand())
+            .attr('height', function(d){ return height - yScale(d[yItems]); });
+      };
+
       
 
 
