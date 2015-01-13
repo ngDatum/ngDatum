@@ -7,8 +7,10 @@
       stroke-width: 2;
     }
 }
+/*barcharts*/
 
-div.tooltip{
+
+/*div.tooltip{
     position:absolute;
     text-align:center;
     width: 60px;
@@ -19,7 +21,8 @@ div.tooltip{
     border: 0px;
     border-radius: 4px;
     pointer-events: none;
-  }
+  }*/
+
   .d3-tip{
     line-height: 1;
     font-weight: bold;
@@ -28,6 +31,13 @@ div.tooltip{
     color: #fff;
     border-radius: 2px;
   }
+  .nd-tooltip{
+    font-family:'Helvetica-light';
+    position: absolute;
+    visibility: hidden;
+    z-index: 10;
+  }
+
   .d3-tip:after {
     box-sizing: border-box;
     display: inline;
@@ -46,6 +56,10 @@ div.tooltip{
     top: 100%;
     left: 0;
   }
+
+
+
+
   .bar{
     fill:deepskyblue;
     stroke:steelblue;
@@ -54,19 +68,19 @@ div.tooltip{
     fill:dodgerblue;
 
   }
-  .axis path{
+  .nd-barchart-yaxis path{
     fill:none;
     stroke: #000;
     shape-rendering: crispEdges;
   }
-  .x.axis{
+  .nd-barchart-xaxis{
     font-weight:bold;
     font:14px;
     font-family:sans-serif;
   }
-  .x.axis path{
+  .nd-barchart-xaxis path{
     display: none;
   }
-  .y.axis{
+  .nd-barchart-yaxis{
     font-family: sans-serif;
   }

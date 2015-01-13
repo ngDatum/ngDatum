@@ -110,7 +110,7 @@ angular.module('nd')
     //X AXIS TEXT
     innerSpace.append('g')
               .attr('transform', tlate(0, height))
-              .attr('class', 'x axis')
+              .attr('class', 'nd-barchart-xaxis')
               .call(xAxis)
               .selectAll('text')
                   .style('text-anchor', 'end')
@@ -123,7 +123,7 @@ angular.module('nd')
 
     //Y AXIS LEGEND TEXT
     var yAxisLegend = innerSpace.append('g')
-                                  .attr('class', 'y axis')
+                                  .attr('class', 'nd-barchart-yaxis')
                                   .call(yAxis)
                                   .append('text')
                                       .attr('y', -4)
@@ -169,14 +169,10 @@ angular.module('nd')
       };
       fancyFunks.tip = function(){
         var tooltip = d3.select(element[0]).append('div')
-                            .attr('class', 'bobby')
-                            .style('position', 'absolute')
-                            .style('z-index', '10')
-                            .style('visibility', 'hidden')
-                            .html('a SIMPLE tooltip');
+                            .attr('class', 'nd-tooltip');
 
         bars.on("mouseover", function(d, i){
-          tooltip.html('<strong>'+d[xItems] +'<br>'+ d[yItems]+'</strong>');
+          tooltip.html('<strong>'+d[xItems] +'</strong><br>'+ d[yItems]);
           return tooltip.style("visibility", "visible");
         })
         .on("mousemove", function(){ return tooltip.style("top", (event.pageY-12)+"px").style("left",(event.pageX+12)+"px");})
@@ -185,7 +181,7 @@ angular.module('nd')
 
 
       //BAR appearance animations (only one per)
-      var fancyBarAnim = ['bounceUp', 'bounceDown', 'grow'];
+      var fancyBarAnim = ['bounceUp', 'bounceDown', 'grow', 'stepGrow'];
 
       //use default bar animation if they dont have any bar animations listed in the attribute
       //that collide with our fancyBarAnim list a couple lines above here
@@ -225,8 +221,9 @@ angular.module('nd')
       //prototype NOT TESTED
       fancyFunks.stepGrow = function(){
         bars.transition()
-            .duration(function(d,i){
-              return parseInt(i + '00' );
+            .duration(function(d,i,b){
+              //at least 1 second, the rest is for the next
+              return 1100 + ((i / scope.dataSet.length) * 1800) ;
             })
             .attr('x', function(d,i){ return xScale(d[xItems]); })
             .attr('y', function(d,i){ return yScale(d[yItems]); })
