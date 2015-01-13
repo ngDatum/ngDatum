@@ -17,7 +17,7 @@ angular.module('ngDatum')
     var customMargins = scope.margins || {};
     var customSize    = scope.size    || {};
     var labels        = scope.labels  || {};
-    var margin        = {}
+    var margin        = {};
 
 
     // chart dimensions
@@ -53,8 +53,8 @@ angular.module('ngDatum')
       .append('path')
       .attr('d', arc)
       .attr('fill', function(d, i){
-        return color(d.data.label)
-      })
+        return color(d.data.label);
+      });
 
     // setup legend
     var legendRectSize = 18;
@@ -71,18 +71,19 @@ angular.module('ngDatum')
         var horz =  -2 * legendRectSize;
         var vert =  i * height - offset;
         return 'translate(' + horz + ',' + vert + ')';
-      })
+      });
 
     legend.append('rect')
      .attr('width', legendRectSize)
      .attr('height', legendRectSize)
      .style('fill', color)
-     .style('stroke', color)
+     .style('stroke', color);
 
     legend.append('text')
       .attr('x', legendRectSize + legendSpacing)
       .attr('y', legendRectSize - legendSpacing)
       .text(function(d) {return d;});
+
     }//end link()
 
     return {
@@ -92,4 +93,4 @@ angular.module('ngDatum')
     };
 
 
-}
+});

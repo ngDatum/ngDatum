@@ -22,7 +22,6 @@ module.exports = function(grunt) {
   });
 
 
-  // jshint dev files
   grunt.registerTask('dev', ['jshint:all']);
   
   // simple to task to test that grunt is working  
