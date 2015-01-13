@@ -56,3 +56,5 @@ $RECYCLE.BIN/
 .directory
 
 
+### Project ###
+dist/*.annotated.js

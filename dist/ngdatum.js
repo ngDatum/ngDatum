@@ -1,7 +1,7 @@
 // chart.js
 
 angular.module('nd', []);
-angular.module('ngDatum')
+angular.module('nd')
 .directive('ndBarchart', function() {
   function tlate(x, y){return 'translate(' + x + ',' + y + ')';}
   function clog(x){console.log(x);}
@@ -220,6 +220,19 @@ angular.module('ngDatum')
             .attr('width', xScale.rangeBand())
             .attr('height', function(d){ return height - yScale(d[yItems]); });
       };
+
+      //prototype NOT TESTED
+      fancyFunks.stepGrow = function(){
+        bars.transition()
+            .duration(function(d,i){
+              return parseInt(i + '00' );
+            })
+            .attr('x', function(d,i){ return xScale(d[xItems]); })
+            .attr('y', function(d,i){ return yScale(d[yItems]); })
+            .attr('width', xScale.rangeBand())
+            .attr('height', function(d){ return height - yScale(d[yItems]); });
+      };
+
       
 
 
@@ -282,7 +295,7 @@ angular.module('ngDatum')
   - make configurable
   - update comments
 */
-angular.module('ngDatum')
+angular.module('nd')
 .directive('ndDonutchart', function() {
   function link(scope, element, attr){
     // var dataset = [
@@ -299,7 +312,7 @@ angular.module('ngDatum')
 
 
     // chart dimensions
-    var width = customSize.width || 360;
+    var width  = customSize.width  || 360;
     var height = customSize.height || 360;
     var radius = Math.min(width, height) / 2;
     var donutWidth = 75;
