@@ -1,0 +1,141 @@
+//linechart.js
+
+// path { 
+//     stroke: steelblue;
+//     stroke-width: 2;
+//     fill: none;
+// }
+
+// .axis path,
+// .axis line {
+//     fill: none;
+//     stroke: grey;
+//     stroke-width: 1;
+//     shape-rendering: crispEdges;
+// }
+
+
+var margin, width, height, parseDate, xScale, yScale, xAxis, yAxis, valueLine, nextDay,
+    dataSet1, dataSet2, dataSet3, dataSet4, innerSpace;
+
+function tlate(x, y){ return 'translate(' + x + ',' + y + ')'; }
+function clog(x){console.log(x);}
+function day(){
+    var today = moment().subtract(1, 'year');
+    return function(){
+        return moment( today.add(1, 'day') );
+    };
+}
+nextDay = day();
+
+function randomClose(){
+    return randNum(125, 200);
+}
+
+function minDay(arr){
+    var minimum = moment( moment().add(10, 'years') );
+    _.each(arr, function(elem){
+        minimum = moment.min(minimum, elem.date);
+    });
+    return minimum;
+}
+function maxDay(arr){
+    var maximum = moment( moment().subtract(10, 'years') );
+    _.each(arr, function(elem){
+        maximum = moment.max(maximum, elem.date);
+    });
+    return maximum;
+}
+
+function createDataSet(){
+    return [
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()},
+        {date: nextDay(), close: randomClose()}
+    ];
+}
+
+dataSet1 = createDataSet();
+dataSet2 = createDataSet();
+dataSet3 = createDataSet();
+dataSet4 = createDataSet();
+
+//increased bottom margin so as to give room for rotated x labels
+margin = { top: 30, right:30, bottom: 50, left: 30 };
+width  = 960 - margin.left - margin.right;
+height = 500 - margin.top - margin.bottom;
+
+
+xScale = d3.time.scale().range([0,width]);
+yScale = d3.scale.linear().range([height, 0]);
+
+
+xAxis = d3.svg.axis()
+                .scale(xScale)
+                .orient('bottom')
+                .tickFormat(d3.time.format('%b-%d'));
+
+
+yAxis = d3.svg.axis()
+                .scale(yScale)
+                .orient('left');
+ 
+
+valueLine = d3.svg.line()
+                    .x(function(d){return xScale(d.date);})
+                    .y(function(d){return yScale(d.close);});
+
+
+innerSpace = d3.select('body')
+                .append('svg')
+                        .attr('width', width + margin.left + margin.right)
+                        .attr('height', height + margin.top + margin.bottom)
+                .append('g')
+                        .attr('transform', tlate(margin.left, margin.top) );
+
+
+
+//scale the range of the data for the innerSpace
+xScale.domain( [ minDay(dataSet1), maxDay(dataSet1) ] );
+yScale.domain( [0, d3.max(dataSet1, function(d){ return d.close; })] );
+
+
+innerSpace.append('path')
+            .attr('d', valueLine(dataSet1));
+
+innerSpace.append('g')
+            .attr('class', 'x axis')
+            .attr('transform', tlate(0, height))
+            .call(xAxis)
+            .selectAll('text')
+                .style('text-anchor', 'end')
+                .attr('dx', '-.8em')
+                .attr('dy', '.15em')
+                .attr('transform', function(d){ return 'rotate(-65)'; });
+
+innerSpace.append('g')
+            .attr('class', 'y axis')
+            .call(yAxis);
