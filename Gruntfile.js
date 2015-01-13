@@ -11,6 +11,17 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
+      options: {
+        camelcase: true,
+        curly: true,
+        eqeqeq: true,
+        browser: true,
+        globals: {
+          angular: true,
+          d3: true,
+          console: true
+        },
+    },
       dev: ['Gruntfile.js', 'src/**/*.js'],
       dist: ['dist/ngdatum.js']
     },
