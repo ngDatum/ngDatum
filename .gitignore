@@ -55,9 +55,6 @@ $RECYCLE.BIN/
 # KDE directory preferences
 .directory
 
-# Other
-test.html
-
 
 ### Project ###
 dist/*.annotated.js

@@ -38,7 +38,7 @@ angular.module('nd')
     
 
 
-    margin.left   = customMargins.left   || 30;
+    margin.left   = customMargins.left   || 35;
     margin.right  = customMargins.right  || 30;
     margin.top    = customMargins.top    || 50;
     margin.bottom = customMargins.bottom || 55; //can handle "long date"
@@ -66,7 +66,8 @@ angular.module('nd')
         .domain(scope.dataSet.map(function(val){ return val[xItems]; }))
         .rangeBands([0, width], 0.1);
 
-    var minYLabel = d3.min(scope.dataSet, function(d){ return d[yItems]; });
+    // var minYLabel = d3.min(scope.dataSet, function(d){ return d[yItems]; });
+    var minYLabel = 0;
     var maxYLabel = d3.max(scope.dataSet, function(d){ return d[yItems]; });
     //shouldnt make this min - max on y scale default,
     //should give option to be 0 - max on y scale
