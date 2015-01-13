@@ -40,7 +40,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['jshint:dev', 'concat:dist', 'jshint:dist', 'ngAnnotate:dist', 'uglify:dist' ]);
 
 
-  grunt.registerTask('dev', ['jshint:all']);
+  grunt.registerTask('dev', ['jshint:dev']);
   
   // simple to task to test that grunt is working  
   grunt.registerTask('test', function(){
