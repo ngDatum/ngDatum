@@ -1,16 +1,21 @@
 /* linechart */
-path { 
-    stroke: steelblue;
-    stroke-width: 2;
-    fill: none;
+
+/*
+Fill   sets the color        INSIDE the object
+Stroke sets the color of the LINE DRAWN AROUND the object.*/
+
+.nd-linechart{
+  font-family: sans-serif;
+}
+.nd-linechart .yaxis path,
+.nd-linechart .xaxis path{
+  fill: none;
+  stroke: black;
 }
 
-.nd-linechart path,
-.axis line {
-    fill: none;
-    stroke: grey;
-    stroke-width: 1;
-    shape-rendering: crispEdges;
+.nd-linechart .valueline{
+  fill: none;
+  stroke: black;
 }
 
 

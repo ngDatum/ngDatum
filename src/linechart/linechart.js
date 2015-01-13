@@ -51,6 +51,7 @@ angular.module('nd')
                             .attr('width', width + margin.left + margin.right)
                             .attr('height', height + margin.top + margin.bottom)
                     .append('g')
+                            .attr('class', 'nd-linechart')
                             .attr('transform', tlate(margin.left, margin.top) );
 
     //find minimum day
@@ -66,7 +67,7 @@ angular.module('nd')
                 .attr('d', valueLine(scope.dataSet));
 
     innerSpace.append('g')
-                .attr('class', 'x axis')
+                .attr('class', 'xaxis')
                 .attr('transform', tlate(0, height))
                 .call(xAxis)
                 .selectAll('text')
@@ -76,7 +77,7 @@ angular.module('nd')
                     .attr('transform', function(d){ return 'rotate(-65)'; });
 
     innerSpace.append('g')
-                .attr('class', 'y axis')
+                .attr('class', 'yaxis')
                 .call(yAxis);
 
 
