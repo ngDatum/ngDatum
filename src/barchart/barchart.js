@@ -1,4 +1,4 @@
-angular.module('ngDatum')
+angular.module('nd')
 .directive('ndBarchart', function() {
   function tlate(x, y){return 'translate(' + x + ',' + y + ')';}
   function clog(x){console.log(x);}

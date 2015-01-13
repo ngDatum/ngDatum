@@ -4,7 +4,7 @@
   - make configurable
   - update comments
 */
-angular.module('ngDatum')
+angular.module('nd')
 .directive('ndDonutchart', function() {
   function link(scope, element, attr){
     // var dataset = [
