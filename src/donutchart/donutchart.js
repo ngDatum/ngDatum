@@ -21,7 +21,7 @@ angular.module('ngDatum')
 
 
     // chart dimensions
-    var width = customSize.width || 360;
+    var width  = customSize.width  || 360;
     var height = customSize.height || 360;
     var radius = Math.min(width, height) / 2;
     var donutWidth = 75;
