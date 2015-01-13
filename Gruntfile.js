@@ -5,13 +5,28 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     concat: {
-      test: {
-        src: ['src/chart.js','src/**/*.js'],
-        dest: 'dist/test.js'
+      dist: {
+        src: ['src/charts.js','src/**/*.js'],
+        dest: 'dist/ngdatum.js'
       }
     },
     jshint: {
-      all: ['Gruntfile.js', 'src/**/*.js']
+      dev: ['Gruntfile.js', 'src/**/*.js'],
+      dist: ['dist/ngdatum.js']
+    },
+    ngAnnotate: {
+      dist: {
+        files: {
+          'dist/ngdatum.annotated.js': ['dist/ngdatum.js']
+        }
+      }
+    },
+    uglify: {
+      dist: {
+        files: {
+          'dist/ngdatum.min.js': ['dist/ngdatum.annotated.js']
+        }
+      }
     },
     watch: {
       dev: {
@@ -20,6 +35,9 @@ module.exports = function(grunt) {
       }
     }
   });
+
+
+  grunt.registerTask('default', ['jshint:dev', 'concat:dist', 'jshint:dist', 'ngAnnotate:dist', 'uglify:dist' ]);
 
 
   grunt.registerTask('dev', ['jshint:all']);
