@@ -1,3 +1,13 @@
+
+/* donut chart */
+.legend {
+  font-size: 12px;
+    }
+  rect {
+      stroke-width: 2;
+    }
+}
+
 div.tooltip{
     position:absolute;
     text-align:center;
