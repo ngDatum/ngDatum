@@ -12,12 +12,19 @@ module.exports = function(grunt) {
     },
     jshint: {
       all: ['Gruntfile.js', 'src/**/*.js']
+    },
+    watch: {
+      dev: {
+        files: ['Gruntfile.js', 'src/**/*.js'],
+        tasks: ['dev']
+      }
     }
   });
 
 
-
-  // grunt.registerTask('concat-test', [concat:test]);
+  // jshint dev files
+  grunt.registerTask('dev', ['jshint:all']);
+  
   // simple to task to test that grunt is working  
   grunt.registerTask('test', function(){
     console.log('Grunt is working');
