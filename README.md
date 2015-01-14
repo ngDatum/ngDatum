@@ -1,12 +1,12 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+<script src="https://github.com/ngDatum/ngDatum/blob/master/dist/ngdatum.min.js"></script>
 
 # Project Name: ngDatum
 
 >  Making data look easy in Angularjs!
 
 >  The goal of this project is to create a directive-based approach for easing the creation of common graphs and charts with d3.
-
-
-
 
 
 ##  Team
@@ -44,7 +44,7 @@
 
 ### Sample installation
 
-1. Add required javascript to your html file:
+Add required javascript to your html file:
 ```sh
 <script src="angular.min.js"></script>
 <script src="d3.min.js"></script>
@@ -52,14 +52,49 @@
 <script src="yourApp.js"></script>
 ```
 
-2. Make the ngData ('nd') library available to your Angular application:
+Make the ngData ('nd') library available to your Angular application:
 ```sh
 angular.module('yourApp', ['nd']);
 ```
 
 ### Example usage
 
-ngData works by providing a a subset of 
+Simple barchart
+```sh
+<div ng-controller="MyController">
+    <nd-barchart data="dataSet"></nd-barchart>
+</div>
+
+<script>
+var app = angular.module('app', ['nd'])
+  .controller('MyController', ['$scope', function($scope){
+    $scope.dataSet = [
+      {name:'Brian',    age:95 },
+      {name:'Bobby',    age:31 },
+      {name:'Dan',      age:45 },
+      {name:'Hayna',    age:90 }
+      ]
+  });
+</script>
+```
+<div ng-app='barchartApp'><div ng-controller="MyController">
+    <nd-barchart data="dataSet"></nd-barchart>
+</div></div>
+
+<script>
+var barchartApp = angular.module('app', ['nd'])
+  .controller('MyController', ['$scope', function($scope){
+    $scope.dataSet = [
+      {name:'Brian',    age:95 },
+      {name:'Bobby',    age:31 },
+      {name:'Dan',      age:45 },
+      {name:'Hayna',    age:90 }
+      ]
+  });
+</script>
+
+
+
 
 
 ## Development
