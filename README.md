@@ -21,8 +21,9 @@
 1. [Dependencies](#dependencies)
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
-
+    1. [Running the Development environment](#running-the-development-environment)
+    1. [Applying changes to production file](#applying-changes-to-production-file)
+1. [Roadmap](#roadmap)
 1. [Contributing](#contributing)
 
 ## Usage
@@ -47,9 +48,7 @@ From within the root directory:
 $ npm install
 ```
 
-
-
-### Running the Development environment
+### Running the development environment
 
 From within the root directory:
 
