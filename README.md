@@ -16,12 +16,13 @@
 
 ## Table of Contents
 
+1. [Team](#team)
 1. [Usage](#Usage)
-1. [Requirements](#requirements)
+1. [Dependencies](#dependencies)
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
     1. [Tasks](#tasks)
-1. [Team](#team)
+
 1. [Contributing](#contributing)
 
 ## Usage
@@ -38,13 +39,38 @@
 
 ### Installing Dependencies
 
+The development environment requires [node.js](http://nodejs.org/).  For installation details, see [here](http://nodejs.org/download/)
+
 From within the root directory:
 
 ```sh
-coming soon
+$ npm install
 ```
 
-### Roadmap
+
+
+### Running the Development environment
+
+From within the root directory:
+
+```sh
+$ grunt watch:dev
+```
+
+This will launch a grunt task that will watch for changes to *.js files in the /src directory.  Any changes will initiate JSHint syntax checking.
+
+### Applying changes to production file
+
+From within the root directory:
+
+```sh
+$ grunt
+```
+
+This will launch a grunt task that will initiate JSHint syntax checking against *.js files in the /src directory.  Then publish concatated and uglified versions to the /dist directory.  
+
+
+## Roadmap
 
 View the project roadmap [here](https://github.com/ngDatum/ngDatum/issues)
 
