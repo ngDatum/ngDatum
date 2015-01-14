@@ -17,8 +17,11 @@
 ## Table of Contents
 
 1. [Team](#team)
-1. [Usage](#Usage)
 1. [Dependencies](#dependencies)
+1. [Usage](#Usage)
+    1. [File location](#file-location)
+    1. [Sample Installation](#sample-installation)
+    1. [Example usage](#example-usage)
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
     1. [Running the Development environment](#running-the-development-environment)
@@ -26,14 +29,37 @@
 1. [Roadmap](#roadmap)
 1. [Contributing](#contributing)
 
-## Usage
-
-> coming soon.
 
 ## Dependencies
 
-- Angular.js (1.2+)
-- d3.js (v3)
+- [Angular.js](https://angularjs.org/) (1.2+)
+- [d3.js](http://d3js.org/) (v3)
+
+## Usage
+
+### File location
+
+- [Production version](https://github.com/ngDatum/ngDatum/blob/master/dist/ngdatum.min.js)
+- [Development version](https://github.com/ngDatum/ngDatum/blob/master/dist/ngdatum.js)
+
+### Sample installation
+
+1. Add required javascript to your html file:
+```sh
+<script src="angular.min.js"></script>
+<script src="d3.min.js"></script>
+<script src="ngdatum.min.js"></script>
+<script src="yourApp.js"></script>
+```
+
+2. Make the ngData ('nd') library available to your Angular application:
+```sh
+angular.module('yourApp', ['nd']);
+```
+
+### Example usage
+
+ngData works by providing a a subset of 
 
 
 ## Development
