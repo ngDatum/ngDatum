@@ -1,6 +1,3 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.8/angular.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-<script src="https://github.com/ngDatum/ngDatum/blob/master/dist/ngdatum.min.js"></script>
 
 # Project Name: ngDatum
 
@@ -17,6 +14,7 @@
 ## Table of Contents
 
 1. [Team](#team)
+1. [Introduction to Angular directives](#introduction-to-angular-directives)
 1. [Dependencies](#dependencies)
 1. [Usage](#Usage)
     1. [File location](#file-location)
@@ -29,6 +27,8 @@
 1. [Roadmap](#roadmap)
 1. [Contributing](#contributing)
 
+## Introduction to Angular directives
+
 
 ## Dependencies
 
@@ -39,7 +39,9 @@
 
 ### File location
 
-- [Production version](https://github.com/ngDatum/ngDatum/blob/master/dist/ngdatum.min.js)
+Right-click and save your preferred version of ngDatum:
+
+- [Production version (minified)](https://github.com/ngDatum/ngDatum/blob/master/dist/ngdatum.min.js)
 - [Development version](https://github.com/ngDatum/ngDatum/blob/master/dist/ngdatum.js)
 
 ### Sample installation
@@ -77,24 +79,8 @@ var app = angular.module('app', ['nd'])
   });
 </script>
 ```
-<div ng-app='barchartApp'><div ng-controller="MyController">
-    <nd-barchart data="dataSet"></nd-barchart>
-</div></div>
 
-<script>
-var barchartApp = angular.module('app', ['nd'])
-  .controller('MyController', ['$scope', function($scope){
-    $scope.dataSet = [
-      {name:'Brian',    age:95 },
-      {name:'Bobby',    age:31 },
-      {name:'Dan',      age:45 },
-      {name:'Hayna',    age:90 }
-      ]
-  });
-</script>
-
-
-
+> more examples coming...
 
 
 ## Development
