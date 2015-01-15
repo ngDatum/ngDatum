@@ -12,6 +12,7 @@
 <script src="src/donutchart/donutchart.js"></script>
 <script src="src/linechart/linechart.js"></script>
 <script src="src/linechart/multilinechart.js"></script>
+<script src="test.js"></script>
 
 
 
@@ -32,139 +33,34 @@
 
 
 
-<title>Testing ngDatum</title>
+
+
+
+
+
+<title>ngDatum Fa Sho</title>
 </head>
 <body>
-<div ng-controller="MyController">
-    <nd-multilinechart data="multilineData" 
-                       labels="{x:'date',y:'close'}"
-                       legends="Amazon, Bestbuy, NP500, Netflix, Time Warner, Bob">
-                       </nd-multilinechart>
+  <div ng-controller="MyController">
+
+      <nd-multilinechart data="multilineData" 
+                         labels="{x:'date', y:'close'}"
+                         legends="Amazon, Bestbuy, NP500, Netflix, Time Warner, Bob"></nd-multilinechart>
+      
+      <nd-barchart data="dataSet"
+                   labels="{x:'name', y:'age'}"
+                   fanciness="stepGrow, tip, emphasizeLow"</nd-barchart>
+
+      <nd-barchart data="dataSet"
+                   labels="{x:'name', y:'age'}"
+                   fanciness="grow, tip, emphasizeHigh"</nd-barchart>
+
+      <nd-donutchart data="donutData"></nd-donutchart>
+
     
-    <!-- <nd-barchart data="dataSet"
-                 labels="{x:'name',y:'age'}"
-                 fanciness="stepGrow, tip, emphasizeLow"
-                 </nd-barchart>
-
-    <nd-donutchart data="donutData">
-                    </nd-donutchart>
-
-    <nd-linechart data="lineData"
-                  labels="{x:'date',y:'close'}"
-                  size="{width:500, height:500}"
-                  margins="{bottom:60}">
-                  </nd-donutchart> -->
-</div>
+  </div>
 </body>
 
-
-<script>
-var app = angular.module('app', ['nd'])
-app.controller('MyController', ['$scope', function($scope){
-    
-    
-  
-  ///////////////////////////////////////
-  //             BARCHART              //
-  ///////////////////////////////////////
-  $scope.dataSet = [
-    {name:'Brian',    age:95 },
-    {name:'Bobby',    age:31 },
-    {name:'Dan',      age:45 },
-    {name:'Hayna',    age:90 },
-    {name:'Bertha',   age:100},
-    {name:'Charlie',  age:100},
-    {name:'Brit',  age:140},
-    {name:'Hammy',  age:120},
-    {name:'Henry',    age:4  },
-    {name:'Maredith', age:57 },
-    {name:'Bambi',    age:23 },
-    {name:'Coco',     age:78 },
-    {name:'Zezu',     age:65 },
-    {name:'Panko',    age:105}
-    
-  ];
-
-  ///////////////////////////////////////
-  //             DONUTCHART            //
-  ///////////////////////////////////////
-  $scope.donutData = [
-    { label: 'Abulia',     count: 10 }, 
-    { label: 'Betelgeuse', count: 20 },
-    { label: 'Cantaloupe', count: 30 },
-    { label: 'Dijkstra',   count: 40 }
-  ];
-
-  ///////////////////////////////////////
-  //              LINECHART            //
-  ///////////////////////////////////////
-
-  function day(){
-    var today = moment().subtract(1, 'year');
-    return function(){
-        return moment( today.add(1, 'day') );
-    };
-  }
-  nextDay = day();
-
-  function randomClose(){
-      return _.random(125, 200);
-  }
-
-  function createDataSet(){
-      return [
-          {date: moment('Jan 01'), close: randomClose()},
-          {date: moment('Jan 02'), close: randomClose()},
-          {date: moment('Jan 03'), close: randomClose()},
-          {date: moment('Jan 04'), close: randomClose()},
-          {date: moment('Jan 05'), close: randomClose()},
-          {date: moment('Jan 06'), close: randomClose()},
-          {date: moment('Jan 07'), close: randomClose()},
-          {date: moment('Jan 08'), close: randomClose()},
-          {date: moment('Jan 09'), close: randomClose()},
-          {date: moment('Jan 10'), close: randomClose()},
-          {date: moment('Jan 11'), close: randomClose()},
-          {date: moment('Jan 12'), close: randomClose()},
-          {date: moment('Jan 13'), close: randomClose()},
-          {date: moment('Jan 14'), close: randomClose()},
-          {date: moment('Jan 15'), close: randomClose()},
-          {date: moment('Jan 16'), close: randomClose()},
-          {date: moment('Jan 17'), close: randomClose()},
-          {date: moment('Jan 18'), close: randomClose()},
-          {date: moment('Jan 19'), close: randomClose()},
-          {date: moment('Jan 20'), close: randomClose()},
-          {date: moment('Jan 21'), close: randomClose()},
-          {date: moment('Jan 22'), close: randomClose()},
-          {date: moment('Jan 23'), close: randomClose()},
-          {date: moment('Jan 24'), close: randomClose()},
-          {date: moment('Jan 25'), close: randomClose()},
-          {date: moment('Jan 26'), close: randomClose()}
-      ];
-  }
-  
-
-  $scope.lineData = createDataSet()
-
-
-  ///////////////////////////////////////
-  //           MULTILINECHART          //
-  ///////////////////////////////////////
-
-  $scope.multilineData = [
-    createDataSet(),
-    createDataSet(),
-    createDataSet(),
-    createDataSet(),
-    createDataSet(),
-    createDataSet()
-  ];
-
-
-
-}]);
-
-
-</script>
 </html>
 
 

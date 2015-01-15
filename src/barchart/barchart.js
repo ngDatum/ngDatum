@@ -237,41 +237,6 @@ angular.module('nd')
       });
 
 
-    
-
-    //OLD TOOLTIP
-        
-
-    //create tooltip and correlating event handlers
-    // var tooltip = d3.select(element[0]).append('div')
-    //     .attr('class', 'tooltip')
-    //     .style('opacity', 0);
-
-
-    // bars.on('mouseover', function(d){
-    //   tooltip.transition()
-    //      .duration(200)
-    //      .style('opacity', .9)
-
-    //   tooltip.html('<strong>'+d[xItems] +'</strong><br>'+ d[yItems])
-    //          .style('left', (d3.event.pageX) + 'px')
-    //          .style('top', (d3.event.pageY - 28) + 'px')
-    // })
-
-    // bars.on('mouseout', function(d){
-    //   tooltip.transition()
-    //           .duration(500)
-    //           .style('opacity',0)
-    // })
-
-        
-
-    
-
-
-    
-                  
-    
 
 
   }//end link()

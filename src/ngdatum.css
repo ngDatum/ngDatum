@@ -5,8 +5,16 @@ Stroke sets the color of the LINE DRAWN AROUND the object.*/
 body{
   font-family:sans-serif;
 }
+
+
+
+
+
+
+
 .nd-multilinechart .legend{
     font-size: 16px;
+    font-family: 'Lucida Grande';
     font-weight: bold;
     text-anchor: middle;
 }
@@ -15,9 +23,28 @@ body{
 .nd-multilinechart .xaxis path,
 .nd-multilinechart line{
   fill: none;
-  stroke: black;
+  stroke: lightgrey;
   shape-rendering: crispEdges;
 }
+
+
+
+
+
+
+
+.grid .tick{
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+.grid path{
+  stroke-width: 0;
+}
+
+
+
+
 
 
 .nd-multilinechart .valueline{
@@ -67,64 +94,67 @@ body{
     pointer-events: none;
   }*/
 
-  .d3-tip{
-    line-height: 1;
-    font-weight: bold;
-    padding: 12px;
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    border-radius: 2px;
-  }
-  .nd-tooltip{
-    font-family:'Helvetica-light';
-    position: absolute;
-    visibility: hidden;
-    z-index: 10;
-  }
-
-  .d3-tip:after {
-    box-sizing: border-box;
-    display: inline;
-    font-size: 10px;
-    width: 100%;
-    line-height: 1;
-    color: rgba(0, 0, 0, 0.8);
-    content: "\25BC";
-    position: absolute;
-    text-align: center;
+.d3-tip{
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+.nd-tooltip{
+  font-family:'Helvetica-light';
+  position: absolute;
+  visibility: hidden;
+  z-index: 10;
 }
 
-  /* Style northward tooltips differently */
-  .d3-tip.n:after {
-    margin: -1px 0 0 0;
-    top: 100%;
-    left: 0;
-  }
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
 
 
 
 
-  .bar{
-    fill:deepskyblue;
-    stroke:steelblue;
-  }
-  .bar:hover{
-    fill:dodgerblue;
+.bar{
+  fill:deepskyblue;
+  stroke:steelblue;
+}
+.bar:hover{
+  fill:dodgerblue;
 
-  }
-  .nd-barchart-yaxis path{
-    fill:none;
-    stroke: #000;
-    shape-rendering: crispEdges;
-  }
-  .nd-barchart-xaxis{
-    font-weight:bold;
-    font:14px;
-    font-family:sans-serif;
-  }
-  .nd-barchart-xaxis path{
-    display: none;
-  }
-  .nd-barchart-yaxis{
-    font-family: sans-serif;
-  }
+}
+.nd-barchart-yaxis path{
+  fill:none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.nd-barchart-xaxis{
+  font-weight:bold;
+  font:14px;
+  font-family:sans-serif;
+}
+.nd-barchart-xaxis path{
+  display: none;
+}
+.nd-barchart-yaxis{
+  font-family: sans-serif;
+}
+
+
+

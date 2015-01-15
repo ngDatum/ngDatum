@@ -41,6 +41,7 @@ angular.module('nd')
     xAxis = d3.svg.axis()
                     .scale(xScale)
                     .orient('bottom')
+                    // .ticks(20)
                     .tickFormat(d3.time.format('%b-%d'));
 
 
@@ -50,6 +51,7 @@ angular.module('nd')
      
 
     valueLine = d3.svg.line()
+                        .interpolate('monotone')
                         .x(function(d){ return xScale(d[xItems]); })
                         .y(function(d){ return yScale(d[yItems]); });
 
@@ -66,6 +68,20 @@ angular.module('nd')
     //find maximum day
 
 
+    //grid lines
+    function make_x_axis(){
+        return d3.svg.axis()
+                    .scale(xScale)
+                    .orient('bottom')
+                    .ticks(5)
+    }
+
+    function make_y_axis(){
+        return d3.svg.axis()
+                    .scale(yScale)
+                    .orient('left')
+                    .ticks(5)
+    }
 
 
 
@@ -101,7 +117,7 @@ angular.module('nd')
         //LEGEND w/clickable hide/show
         innerSpace.append('text')
                 .attr('x', (legendSpace/2) + (index * legendSpace) )
-                .attr('y', height + 5 + (margin.bottom / 2))
+                .attr('y', height + (margin.bottom/1.5))
                 .attr('class', 'legend')
                 .style('fill', function(){ return color(index); })
                 .on('click', function(){
@@ -133,9 +149,36 @@ angular.module('nd')
                     .attr('dy', '.15em')
                     .attr('transform', function(d){ return 'rotate(-35)'; });
 
+    //Y AXIS
     innerSpace.append('g')
                 .attr('class', 'yaxis')
                 .call(yAxis);
+
+    //GRID LINES
+    innerSpace.append('g')
+                .attr('class', 'grid')
+                .attr('transform', tlate(0, height))
+                .style('fill', 'red')
+                .call(make_x_axis()
+                        .tickSize(-height, 0, 0)
+                        .tickFormat('')
+                )
+
+    innerSpace.append('g')
+                .attr('class', 'grid')
+                .call(make_y_axis()
+                        .tickSize(-width, 0, 0)
+                        .tickFormat('')
+                )
+
+
+
+
+
+
+
+
+
   }//end link()
 
   return {
