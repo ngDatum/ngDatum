@@ -11,6 +11,7 @@
 <script src="src/barchart/barchart.js"></script>
 <script src="src/donutchart/donutchart.js"></script>
 <script src="src/linechart/linechart.js"></script>
+<script src="src/linechart/multilinechart.js"></script>
 
 
 
@@ -35,8 +36,12 @@
 </head>
 <body>
 <div ng-controller="MyController">
+    <nd-multilinechart data="multilineData" 
+                       labels="{x:'date',y:'close'}"
+                       legends="Amazon, Bestbuy, NP500, Netflix, Time Warner, Bob">
+                       </nd-multilinechart>
     
-    <nd-barchart data="dataSet"
+    <!-- <nd-barchart data="dataSet"
                  labels="{x:'name',y:'age'}"
                  fanciness="stepGrow, tip, emphasizeLow"
                  </nd-barchart>
@@ -48,41 +53,9 @@
                   labels="{x:'date',y:'close'}"
                   size="{width:500, height:500}"
                   margins="{bottom:60}">
-                  </nd-donutchart>
+                  </nd-donutchart> -->
 </div>
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <script>
@@ -140,32 +113,32 @@ app.controller('MyController', ['$scope', function($scope){
 
   function createDataSet(){
       return [
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()},
-          {date: nextDay(), close: randomClose()}
+          {date: moment('Jan 01'), close: randomClose()},
+          {date: moment('Jan 02'), close: randomClose()},
+          {date: moment('Jan 03'), close: randomClose()},
+          {date: moment('Jan 04'), close: randomClose()},
+          {date: moment('Jan 05'), close: randomClose()},
+          {date: moment('Jan 06'), close: randomClose()},
+          {date: moment('Jan 07'), close: randomClose()},
+          {date: moment('Jan 08'), close: randomClose()},
+          {date: moment('Jan 09'), close: randomClose()},
+          {date: moment('Jan 10'), close: randomClose()},
+          {date: moment('Jan 11'), close: randomClose()},
+          {date: moment('Jan 12'), close: randomClose()},
+          {date: moment('Jan 13'), close: randomClose()},
+          {date: moment('Jan 14'), close: randomClose()},
+          {date: moment('Jan 15'), close: randomClose()},
+          {date: moment('Jan 16'), close: randomClose()},
+          {date: moment('Jan 17'), close: randomClose()},
+          {date: moment('Jan 18'), close: randomClose()},
+          {date: moment('Jan 19'), close: randomClose()},
+          {date: moment('Jan 20'), close: randomClose()},
+          {date: moment('Jan 21'), close: randomClose()},
+          {date: moment('Jan 22'), close: randomClose()},
+          {date: moment('Jan 23'), close: randomClose()},
+          {date: moment('Jan 24'), close: randomClose()},
+          {date: moment('Jan 25'), close: randomClose()},
+          {date: moment('Jan 26'), close: randomClose()}
       ];
   }
   
@@ -173,8 +146,29 @@ app.controller('MyController', ['$scope', function($scope){
   $scope.lineData = createDataSet()
 
 
+  ///////////////////////////////////////
+  //           MULTILINECHART          //
+  ///////////////////////////////////////
+
+  $scope.multilineData = [
+    createDataSet(),
+    createDataSet(),
+    createDataSet(),
+    createDataSet(),
+    createDataSet(),
+    createDataSet()
+  ];
+
+
+
 }]);
 
 
 </script>
 </html>
+
+
+
+
+
+

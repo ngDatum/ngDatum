@@ -42,8 +42,8 @@ angular.module('nd')
      
 
     valueLine = d3.svg.line()
-                        .x(function(d){return xScale(d.date);})
-                        .y(function(d){return yScale(d.close);});
+                        .x(function(d){return xScale(d[xItems]);})
+                        .y(function(d){return yScale(d[yItems]);});
 
 
     innerSpace = d3.select(element[0])

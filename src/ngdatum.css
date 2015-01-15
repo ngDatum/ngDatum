@@ -2,6 +2,30 @@
 /*
 Fill   sets the color        INSIDE the object
 Stroke sets the color of the LINE DRAWN AROUND the object.*/
+body{
+  font-family:sans-serif;
+}
+.nd-multilinechart .legend{
+    font-size: 16px;
+    font-weight: bold;
+    text-anchor: middle;
+}
+
+.nd-multilinechart .yaxis path,
+.nd-multilinechart .xaxis path,
+.nd-multilinechart line{
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
+}
+
+
+.nd-multilinechart .valueline{
+  stroke-width:2;
+  fill: none;
+  stroke: black;
+}
+
 .nd-linechart{
   font-family: sans-serif;
 }
