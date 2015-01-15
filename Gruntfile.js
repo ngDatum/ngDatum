@@ -39,6 +39,17 @@ module.exports = function(grunt) {
         }
       }
     },
+    compress: {
+      main: {
+        options: {
+          archive: 'dist/ngdatum.zip'
+        },
+        files: [
+          { src: 'dist/ngdatum.js'},
+          { src: 'dist/ngdatum.min.js'}
+        ]
+      }
+    },
     watch: {
       dev: {
         files: ['Gruntfile.js', 'src/**/*.js'],
@@ -48,7 +59,7 @@ module.exports = function(grunt) {
   });
 
 
-  grunt.registerTask('default', ['jshint:dev', 'concat:dist', 'jshint:dist', 'ngAnnotate:dist', 'uglify:dist' ]);
+  grunt.registerTask('default', ['jshint:dev', 'concat:dist', 'jshint:dist', 'ngAnnotate:dist', 'uglify:dist', 'compress:main' ]);
 
 
   grunt.registerTask('dev', ['jshint:dev']);
