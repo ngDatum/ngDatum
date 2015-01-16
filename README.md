@@ -44,6 +44,8 @@ Right-click and save your preferred version of ngDatum:
 - [Production version (minified)](https://github.com/ngDatum/ngDatum/blob/master/dist/ngdatum.min.js)
 - [Development version](https://github.com/ngDatum/ngDatum/blob/master/dist/ngdatum.js)
 
+Or get both via a [zip file](https://github.com/ngDatum/ngDatum/blob/master/dist/ngdatum.zip)
+
 ### Sample installation
 
 Add required javascript to your html file:
