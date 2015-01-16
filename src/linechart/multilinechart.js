@@ -69,18 +69,18 @@ angular.module('nd')
 
 
     //grid lines
-    function make_x_axis(){
+    function makeXAxis(){
         return d3.svg.axis()
                     .scale(xScale)
                     .orient('bottom')
-                    .ticks(5)
+                    .ticks(5);
     }
 
-    function make_y_axis(){
+    function makeYAxis(){
         return d3.svg.axis()
                     .scale(yScale)
                     .orient('left')
-                    .ticks(5)
+                    .ticks(5);
     }
 
 
@@ -89,7 +89,7 @@ angular.module('nd')
     function maxOfMultipleDataSets(){
         var max = Number.NEGATIVE_INFINITY;
         scope.dataSet.forEach(function(ds){
-            max = Math.max(max, d3.max(ds, function(d){ return d[yItems]; }) )
+            max = Math.max(max, d3.max(ds, function(d){ return d[yItems]; }) );
         });
         return max;
     }
@@ -112,7 +112,7 @@ angular.module('nd')
                 .attr('class', 'valueline')
                 .attr('d', valueLine(ds))
                 .attr('id', 'tag' + legends[index])
-                .style('stroke', color(index))
+                .style('stroke', color(index));
 
         //LEGEND w/clickable hide/show
         innerSpace.append('text')
@@ -127,11 +127,11 @@ angular.module('nd')
                     //Hide or show the elements based on the ID and remove spaces
                     d3.select('#tag' + legends[index])
                         .transition().duration(100)
-                        .style('opacity', newOpacity)
+                        .style('opacity', newOpacity);
 
                     ds.active = active;                   
                 })
-                .text(legends[index])
+                .text(legends[index]);
     });
     
 
@@ -159,17 +159,17 @@ angular.module('nd')
                 .attr('class', 'grid')
                 .attr('transform', tlate(0, height))
                 .style('fill', 'red')
-                .call(make_x_axis()
+                .call(makeXAxis()
                         .tickSize(-height, 0, 0)
                         .tickFormat('')
-                )
+                );
 
     innerSpace.append('g')
                 .attr('class', 'grid')
-                .call(make_y_axis()
+                .call(makeYAxis()
                         .tickSize(-width, 0, 0)
                         .tickFormat('')
-                )
+                );
 
 
 
